@@ -1,0 +1,9 @@
+name : First Try
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a script
+        run: echo "This script runs on every push!"
