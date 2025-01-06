@@ -4,9 +4,23 @@ on:
     branches:
       -main
   workflow_dispatch:
+
+permissions:
+  contents:read
+  pages:write
+  id-token:write
+
 jobs:
   print-tag:
     runs-on: ubuntu-latest
     steps:
       - name: Print the purpose of run
-        run: echo "Purpose Deploying portfolio or running tests"    
+        run: echo "Purpose Deploying portfolio or running tests"
+      - name: Checking out code
+        uses: actions/checkout@v2
+      - name: Setting Up Code
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
