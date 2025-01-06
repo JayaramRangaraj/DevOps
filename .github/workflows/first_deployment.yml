@@ -21,6 +21,10 @@ jobs:
         run: echo "Purpose Deploying portfolio or running tests"
       - name: Checking out code
         uses: actions/checkout@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
