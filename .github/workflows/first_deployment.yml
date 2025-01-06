@@ -27,5 +27,9 @@ jobs:
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-actions@releases/v3
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          BRANCH: main
+          FOLDER: For Testing
 
