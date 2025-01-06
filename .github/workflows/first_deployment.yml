@@ -2,7 +2,7 @@ name: Portfolio Deployment
 on: 
   push:
     branches:
-      -main
+      - main
   workflow_dispatch:
 
 permissions:
@@ -18,18 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the purpose of run
-        run: echo "Purpose Deploying portfolio or running tests"
+        run: echo "Purpose: Deploying portfolio or running tests"
+        
       - name: Checking out code
         uses: actions/checkout@v2
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist' # Replace with the directory containing built files
+        
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: JamesIves/github-pages-deploy-actions@releases/v3
-        with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          BRANCH: main
-          FOLDER: For Testing
-
+        uses: actions/deploy-pages@v4
