@@ -11,7 +11,10 @@ permissions:
   id-token: write
 
 jobs:
-  print-tag:
+  deploy:
+    environment:
+      name: page_deploy
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Print the purpose of run
