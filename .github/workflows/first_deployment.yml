@@ -1,9 +1,12 @@
-name : First Try
-on: [push]
+name: Portfolio Deployment
+on: 
+  push:
+    branches:
+      -main
+  workflow_dispatch:
 jobs:
-  build:
+  print-tag:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run a script
-        run: echo "This script runs on every push!"
+      - name: Print the purpose of run
+        run: echo "Purpose Deploying portfolio or running tests"    
